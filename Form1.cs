@@ -258,7 +258,7 @@ namespace Calculator
 
         private void btnComma_Click(object sender, EventArgs e)
         {
-            if (this.BackColor == Color.Gainsboro)
+            if (this.BackColor == Color.White)
             {
 
                 // Eğer mevcut tema beyaz ise, siyah tema olarak değiştir.
@@ -294,7 +294,7 @@ namespace Calculator
 
         private void Theme1()
         {
-            this.BackColor = Color.Gainsboro;
+            this.BackColor = Color.White;
             this.ForeColor = Color.Black;
 
             //TextBoxlar
@@ -304,6 +304,8 @@ namespace Calculator
             txtShow.ForeColor = Color.Black;
 
             //Rakam butonları
+            btnZero.BackColor = Color.Silver;
+            btnZero.ForeColor = Color.White;
             btnOne.BackColor = Color.Silver;
             btnOne.ForeColor = Color.White;
             btnTwo.BackColor = Color.Silver;
@@ -363,6 +365,8 @@ namespace Calculator
             txtShow.ForeColor = Color.White;
 
             //Rakam butonları
+            btnZero.BackColor = Color.DimGray;
+            btnZero.ForeColor = Color.White;
             btnOne.BackColor = Color.DimGray;
             btnOne.ForeColor = Color.White;
             btnTwo.BackColor = Color.DimGray;
