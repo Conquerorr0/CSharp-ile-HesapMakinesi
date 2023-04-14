@@ -13,19 +13,21 @@ namespace Calculator
         FileInfo file;
         StreamWriter writer = null;
         StreamReader reader = null;
-
-        public History(string processes, string conclusion) 
-        { 
+        public List<string> list;
+        public History(string processes, string conclusion)
+        {
             this.processes = processes;
             this.conclusion = conclusion;
             path = @"C:\Users\User\Desktop\DOSYALAR\NTP\My Project\Calculator\History.txt";
             file = new FileInfo(path);
+            
         }
 
         public History()
         {
             path = @"C:\Users\User\Desktop\DOSYALAR\NTP\My Project\Calculator\History.txt";
             file = new FileInfo(path);
+            list = new List<string>();
         }
 
         public void yaz()
@@ -34,10 +36,10 @@ namespace Calculator
             writer.WriteLine(processes + " = " + conclusion);
             writer.Close();
         }
-        
+
         public string oku()
         {
-            
+
             reader = new StreamReader(path);
 
             StringBuilder sb = new StringBuilder();
@@ -45,6 +47,7 @@ namespace Calculator
             while (!reader.EndOfStream)
             {
                 string line = reader.ReadLine() + "\n";
+                list.Add(line);
                 sb.AppendLine(line);
             }
 

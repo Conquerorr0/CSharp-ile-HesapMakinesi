@@ -28,6 +28,7 @@ namespace Calculator
             showValue = "";
             conclusion = 0;
             isItFirstValue = true;
+            history = new History();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,15 +36,9 @@ namespace Calculator
 
         }
 
-        private void btnC_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void btnCE_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         History history;
         private void btnEq_Click(object sender, EventArgs e)
@@ -53,7 +48,7 @@ namespace Calculator
             history.yaz();
             txtConclusion.Text = Convert.ToString(conclusion);
             txtShow.Text = "";
-            //Geçmişe kaydetmek için txt dosyasına showvalues ve conclusion değerlerini göndererek texte kaydetme sınıfında hallet.
+            
 
         }
 
@@ -126,6 +121,19 @@ namespace Calculator
                 font = new Font(txtShow.Font.FontFamily, fontSize, txtShow.Font.Style);
             }
             txtShow.Font = font;
+        }
+
+        //txtConclusion textBox'ına değer girildiğinde eğer sığmazsa fontu kğ
+        private void fontReduction2(object sender, EventArgs e)
+        {
+            int fontSize = 36;
+            Font font = new Font(txtConclusion.Font.FontFamily, fontSize, txtConclusion.Font.Style);
+            while (TextRenderer.MeasureText(txtConclusion.Text, font).Width > txtConclusion.Width || TextRenderer.MeasureText(txtConclusion.Text, font).Height > txtConclusion.Height)
+            {
+                fontSize--;
+                font = new Font(txtConclusion.Font.FontFamily, fontSize, txtConclusion.Font.Style);
+            }
+            txtConclusion.Font = font;
         }
 
 
@@ -251,9 +259,9 @@ namespace Calculator
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            history = new History();
-            txtConclusion.Text = history.oku();
-            //txtConclusion.Text = history.oku();
+            history.oku();
+            txtConclusion.Text = history.list[0];
+            fontReduction2(sender, e);
         }
 
         private void btnComma_Click(object sender, EventArgs e)
@@ -351,6 +359,26 @@ namespace Calculator
             btnThemes.BackColor = Color.SkyBlue;
             btnThemes.ForeColor = Color.White;
 
+        }
+        int count = 0;
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            fontReduction2(sender, e);
+            if (count > 0)
+            {
+                count--;
+                txtConclusion.Text = history.list[count];
+            }
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            fontReduction2(sender, e);
+            if (count < history.list.Count-1)
+            {
+                count++;
+                txtConclusion.Text = history.list[count];
+            }
         }
 
         private void Theme2()

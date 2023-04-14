@@ -51,6 +51,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnOff = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnZero
@@ -255,12 +257,11 @@
             // 
             this.txtConclusion.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtConclusion.Font = new System.Drawing.Font("MS Reference Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtConclusion.Location = new System.Drawing.Point(12, 112);
+            this.txtConclusion.Location = new System.Drawing.Point(38, 112);
             this.txtConclusion.Multiline = true;
             this.txtConclusion.Name = "txtConclusion";
             this.txtConclusion.ReadOnly = true;
-            this.txtConclusion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtConclusion.Size = new System.Drawing.Size(418, 94);
+            this.txtConclusion.Size = new System.Drawing.Size(392, 94);
             this.txtConclusion.TabIndex = 23;
             this.txtConclusion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -326,12 +327,44 @@
             this.btnOff.UseVisualStyleBackColor = false;
             this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
             // 
+            // btnUp
+            // 
+            this.btnUp.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUp.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUp.ForeColor = System.Drawing.Color.Black;
+            this.btnUp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUp.Location = new System.Drawing.Point(12, 112);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(27, 49);
+            this.btnUp.TabIndex = 30;
+            this.btnUp.Text = "↑";
+            this.btnUp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDown.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDown.ForeColor = System.Drawing.Color.Black;
+            this.btnDown.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDown.Location = new System.Drawing.Point(12, 159);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(27, 47);
+            this.btnDown.TabIndex = 31;
+            this.btnDown.Text = "↓";
+            this.btnDown.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(442, 753);
+            this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnOff);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnDelete);
@@ -386,6 +419,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnOff;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnDown;
     }
 }
 
